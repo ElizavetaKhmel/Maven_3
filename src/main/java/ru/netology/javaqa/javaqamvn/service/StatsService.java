@@ -38,12 +38,11 @@ public class StatsService {
 
     public int getMonthLowerAverageSell(int[] sell) { //кол-во месяцев, с продажами ниже среднего
         int minSell = 0;
-        double averageSum = getAverageMonthlySell(sell);
-        
+        int averageSum = getAverageMonthlySell(sell);
+
         for (int monthAmount : sell) {
-            if (monthAmount < averageSum(sell)) {
-                minSell = minSell + 1;
-            }
+            if (monthAmount < averageSum)
+            minSell = minSell + 1;
         }
         return minSell;
     }
@@ -51,7 +50,7 @@ public class StatsService {
     public int getMonthHigherAverageSell(int[] sell) { //количество мес, где продажи были больше среднего
         int maxMonth = 0;
         double averageSum = getAverageMonthlySell(sell);
-        
+
         for (int monthAmount : sell) {
             if (monthAmount > averageSum) {
                 maxMonth = maxMonth + 1;
